@@ -1,0 +1,25 @@
+<div class="container" aria-labelledby="Page">
+  <h2 id="Page"> Búsqueda por nombres </h2>
+
+  <mat-form-field color="accent" role="search">
+    <mat-label id="search">Buscar</mat-label>
+    <input matInput aria-label="Search name" (keyup)="ApplyFilter($event)">
+  </mat-form-field>
+
+  <mat-card *ngFor="let meal of meals" class="meal-card" role="article" aria-labelledby="meal-title">
+    <img mat-card-image [src]="meal.image" alt="Imagen del plato" role="img" aria-label="meal image">
+    <mat-card-header>
+      <mat-card-title  role="heading" aria-level="2">Random Recipe</mat-card-title>
+      <mat-card-subtitle  role="heading" aria-level="2" id="meal-title">{{ meal.name }}</mat-card-subtitle>
+      <mat-card-subtitle> {{ meal.category }} </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content role="region" aria-label="meal content">
+      <p>{{ meal.instructions }}</p>
+      <p>Ingredients:</p>
+      <ul>
+        <li role="listitem">{{ meal.ingredient1 }}</li>
+        <li role="listitem">{{ meal.ingredient2 }}</li>
+      </ul>
+    </mat-card-content>
+  </mat-card>
+</div>
